@@ -1,8 +1,7 @@
-FROM node:7
-WORKDIR /app
-COPY package.json .
-COPY package.json /app
-RUN npm install
-COPY . /app
-CMD node index.js
-EXPOSE 3000
+const express = require('express')
+const app = express()
+const port = 4000
+
+app.get('/app', (req, res) => res.send('Hello World!'))
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`)) 
